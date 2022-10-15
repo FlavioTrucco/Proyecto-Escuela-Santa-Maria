@@ -32,11 +32,13 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getcurso() {
+        return curso;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 }
+
+
