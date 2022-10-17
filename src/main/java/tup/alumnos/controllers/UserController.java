@@ -77,7 +77,7 @@ public class UserController {
 
     User n = new User();
     n.setName(name);
-    n.setcurso(curso);
+    n.setCurso(curso);
     userRepository.save(n);
     return "Saved";
   }
