@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -35,4 +33,3 @@ VALUES
     (7, 'segundo@gmail.com', 'Segundo'),
     (8, 'tercero@gmail.com', 'Tercero'),
     (9, 'cuarto@gmail.com', 'Cuarto');
->>>>>>> 7d63b74f91e23beac0b7181b06d8cec42493b96d
