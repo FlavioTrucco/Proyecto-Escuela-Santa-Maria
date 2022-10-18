@@ -72,12 +72,13 @@ public class UserController {
   private UserRepository userRepository;
 
   @PostMapping("/add") // Map ONLY POST Requests
-  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso) {
+  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso, @RequestParam String sexo) {
     // @RequestParam means it is a parameter from the GET or POST request
 
     User n = new User();
     n.setNombre(Nombre);
     n.setCurso(curso);
+    n.setSexo(sexo);
     userRepository.save(n);
     return "Saved";
   }
@@ -169,8 +170,8 @@ public class UserController {
       resp += "<tr>"
           + "<td>" + user.getId() + "</td>"
           + "<td>" + user.getNombre() + "</td>"
-          + "<td>" + user.getcurso() + "</td>"
-          
+          + "<td>" + user.getCurso() + "</td>"
+          + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
     }
     return resp + "</table>";

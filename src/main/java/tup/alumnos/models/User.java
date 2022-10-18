@@ -46,7 +46,7 @@ public class User {
 
     private String curso;
 
-    private String nota;
+    private String sexo;
 
     public Long getId() {
         return id;
@@ -64,7 +64,7 @@ public class User {
         this.Nombre = Nombre;
     }
 
-    public String getcurso() {
+    public String getCurso() {
         return curso;
     }
 
@@ -72,7 +72,17 @@ public class User {
         this.curso = curso;
     }
 
-    
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+
+
+
 }
 
 

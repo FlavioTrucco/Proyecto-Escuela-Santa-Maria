@@ -2,14 +2,13 @@ DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-DROP USER `springuser` @`localhost:8080`;
 DROP USER `springuser`@`%`;
 
-CREATE USER `springuser` @`localhost:8080` IDENTIFIED BY 'ThePassword';
+CREATE USER `springuser` @`%` IDENTIFIED BY 'ThePassword';
 
-GRANT USAGE ON *.* TO `springuser` @`localhost:8080`;
+GRANT USAGE ON *.* TO `springuser` @`%`;
 
-GRANT ALL PRIVILEGES ON `alumnos`.* TO ' springuser ' @' localhost:8080 ';
+GRANT ALL PRIVILEGES ON `alumnos`.* TO ' springuser ' @' % ';
 
 USE `alumnos`;
 
@@ -19,18 +18,19 @@ CREATE TABLE IF NOT EXISTS `user` (
     `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
     `curso` varchar(255) DEFAULT NULL,
     `Nombre` varchar(255) DEFAULT NULL,
+    `Sexo` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 INSERT INTO
-    `user` (`id`, `curso`, `Nombre`)
+    `user` (`id`, `curso`, `Nombre`,`Sexo`)
 VALUES
-    (1, 'primero', 'Flavio Trucco'),
-    (2, 'primero', 'Vanessa Quiñones'),
-    (3, 'primero', 'Facundo Wehrli'),
-    (4, 'primero', 'Erik Lamela'),
-    (5, 'segundo', 'Lionel Andres Messi'),
-    (6, 'tercero', 'Tomas Paz'),
-    (7, 'cuarto', 'Gustavo Guzman'),
-    (8, 'quinto', 'Celina García'),
-    (9, 'primero', 'Luciano');
+    (1, 'primero', 'Flavio Trucco', 'Masculino'),
+    (2, 'primero', 'Vanessa Quiñones', 'Femenino'),
+    (3, 'primero', 'Facundo Wehrli', 'Masculino'),
+    (4, 'primero', 'Erik Lamela', 'Masculino'),
+    (5, 'segundo', 'Lionel Andres Messi','Masculino'),
+    (6, 'tercero', 'Tomas Paz','Masculino'),
+    (7, 'cuarto', 'Gustavo Guzman','Masculino'),
+    (8, 'quinto', 'Celina García' , 'Femenino'),
+    (9, 'primero', 'Luciano Once' , 'Masculino');
