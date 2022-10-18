@@ -72,12 +72,12 @@ public class UserController {
   private UserRepository userRepository;
 
   @PostMapping("/add") // Map ONLY POST Requests
-  public String addNewUser(@RequestParam String name, @RequestParam String curso) {
+  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso) {
     // @RequestParam means it is a parameter from the GET or POST request
 
     User n = new User();
-    n.setName(name);
-    n.setcurso(curso);
+    n.setNombre(Nombre);
+    n.setCurso(curso);
     userRepository.save(n);
     return "Saved";
   }
@@ -98,6 +98,7 @@ public class UserController {
      * https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-
      * Optional<T> findById(ID id)
      */
+    
     return userRepository.findById(id).toString();
   }
 
@@ -153,7 +154,7 @@ public class UserController {
           <table id ='users'>
             <tr>
               <th>Id</th>
-              <th>Name</th>
+              <th>Nombre</th>
               <th>curso</th>
             </tr>
         """;
@@ -167,7 +168,7 @@ public class UserController {
     for (User user : iterable) {
       resp += "<tr>"
           + "<td>" + user.getId() + "</td>"
-          + "<td>" + user.getName() + "</td>"
+          + "<td>" + user.getNombre() + "</td>"
           + "<td>" + user.getcurso() + "</td>"
           
           + "</tr>";
