@@ -2,11 +2,8 @@ DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-<<<<<<< HEAD
 DROP USER `springuser` @`localhost:8080`;
-=======
 DROP USER `springuser`@`%`;
->>>>>>> 7b5c79cb416e9a60332ab2cd65b997df116df289
 
 CREATE USER `springuser` @`localhost:8080` IDENTIFIED BY 'ThePassword';
 
