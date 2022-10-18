@@ -28,8 +28,8 @@ VALUES
     (2, 'primero', 'Vanessa Quiñones'),
     (3, 'primero', 'Facundo Wehrli'),
     (4, 'primero', 'Erik Lamela'),
-    (5, 'first@gmail.com', 'First'),
-    (6, 'primero@gmail.com', 'Primero'),
-    (7, 'segundo@gmail.com', 'Segundo'),
-    (8, 'tercero@gmail.com', 'Tercero'),
-    (9, 'cuarto@gmail.com', 'Cuarto');
+    (5, 'segundo', 'Lionel Andres Messi'),
+    (6, 'tercero', 'Tomas Paz'),
+    (7, 'cuarto', 'Gustavo Guzman'),
+    (8, 'quinto', 'Celina García'),
+    (9, 'primero', 'Luciano Once');
