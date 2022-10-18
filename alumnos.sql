@@ -32,4 +32,4 @@ VALUES
     (6, 'tercero', 'Tomas Paz'),
     (7, 'cuarto', 'Gustavo Guzman'),
     (8, 'quinto', 'Celina García'),
-    (9, 'primero', 'Luciano Once');
+    (9, 'primero', 'Luciano');
