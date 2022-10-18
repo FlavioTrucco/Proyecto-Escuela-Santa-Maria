@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-DROP USER `springuser` @`%`;
+DROP USER `springuser`@`%`;
 
 CREATE USER `springuser` @`%` IDENTIFIED BY 'ThePassword';
 
@@ -17,12 +17,12 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
     `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
     `curso` varchar(255) DEFAULT NULL,
-    `nombre` varchar(255) DEFAULT NULL,
+    `Nombre` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 INSERT INTO
-    `user` (`id`, `curso`, `nombre`)
+    `user` (`id`, `curso`, `Nombre`)
 VALUES
     (1, 'primero', 'Flavio Trucco'),
     (2, 'primero', 'Vanessa Quiñones'),
