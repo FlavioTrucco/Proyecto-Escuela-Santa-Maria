@@ -157,6 +157,7 @@ public class UserController {
               <th>Id</th>
               <th>Nombre</th>
               <th>curso</th>
+              <th>sexo</th>
             </tr>
         """;
         /**
