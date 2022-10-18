@@ -16,6 +16,8 @@ public class User {
 
     private String curso;
 
+    private String nota;
+
     public Long getId() {
         return id;
     }
@@ -39,4 +41,6 @@ public class User {
     public void setcurso(String curso) {
         this.curso = curso;
     }
+
+    
 }
