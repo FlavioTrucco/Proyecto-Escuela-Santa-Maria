@@ -170,6 +170,7 @@ public class UserController {
           + "<td>" + user.getId() + "</td>"
           + "<td>" + user.getNombre() + "</td>"
           + "<td>" + user.getcurso() + "</td>"
+          
           + "</tr>";
     }
     return resp + "</table>";

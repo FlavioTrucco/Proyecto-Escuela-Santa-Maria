@@ -2,13 +2,14 @@ DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+DROP USER `springuser` @`localhost:8080`;
 DROP USER `springuser`@`%`;
 
-CREATE USER `springuser` @`%` IDENTIFIED BY 'ThePassword';
+CREATE USER `springuser` @`localhost:8080` IDENTIFIED BY 'ThePassword';
 
-GRANT USAGE ON *.* TO `springuser` @`%`;
+GRANT USAGE ON *.* TO `springuser` @`localhost:8080`;
 
-GRANT ALL PRIVILEGES ON `alumnos`.* TO ' springuser ' @' % ';
+GRANT ALL PRIVILEGES ON `alumnos`.* TO ' springuser ' @' localhost:8080 ';
 
 USE `alumnos`;
 
