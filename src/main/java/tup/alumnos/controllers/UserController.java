@@ -98,10 +98,76 @@ public class UserController {
     /**
      * https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-
      * Optional<T> findById(ID id)
+     * 
+     * Dentro del estilo, el selector #users indica que el estilo
+     * que estamos definiendo es para ser usado solamente en el
+     * elemento del DOM que tiene id='users', o sea la tabla.
      */
-    
-    return userRepository.findById(id).toString();
+    String resp = """
+          <style>
+            #users {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            #users td, #users th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            #users tr:nth-child(even){background-color: #f2f2f2;}
+            #users tr:hover {background-color: #ddd;}
+            #users th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+          </style>
+          <table id='users'>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Curso</th>
+              <th>Sexo</th>
+            </tr>
+        """;
+    /**
+     * https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html
+     * El método findById() tiene un tipo de retorno Optional.
+     * Dicho brevemente, significa que el objeto retornado puede estar
+     * presente, o no estar presente. O está, o no está. Solo hay dos opciones.
+     * Si está, lo puedo extraer con el método get(). En este caso, el get()
+     * me devuelve simplemente el objeto de tipo User, con sus campos
+     * debidamente completados con los valores que JPA sacó de la tabla
+     * correspondiente
+     * de la base de datos.
+     */
+    if (userRepository.findById(id).isPresent()) {
+      /**
+       * No necesito el operador new. Solo lo uso cuando quiero crear una
+       * instancia que todavía no existe, por eso es 'nueva'. En este caso,
+       * el objeto user ya existe, y me viene retornado por el método get().
+       * No necesito crearlo, solo se lo asigno a la variable.
+       */
+      User user = userRepository.findById(id).get();
+      resp += "<tr>"
+          + "<td>" + user.getId() + "</td>"
+          + "<td>" + user.getNombre() + "</td>"
+          + "<td>" + user.getCurso() + "</td>"
+          + "<td>" + user.getSexo() + "</td>"
+          + "</tr>";
+    } else {
+      resp += "<tr>"
+          + "<td>" + "-" + "</td>"
+          + "<td>" + "-" + "</td>"
+          + "<td>" + "-" + "</td>"
+          + "</tr>";
+
+    }
+    return resp + "</table>";
   }
+
 
   @GetMapping("/all")
   public String getAllUsers() {
