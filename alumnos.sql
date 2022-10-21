@@ -30,7 +30,8 @@ VALUES
     (3, 'primero', 'Facundo Wehrli', 'Masculino'),
     (4, 'primero', 'Erik Lamela', 'Masculino'),
     (5, 'segundo', 'Lionel Andres Messi','Masculino'),
-    (6, 'tercero', 'Tomas Paz','Masculino'),
-    (7, 'cuarto', 'Gustavo Guzman','Masculino'),
-    (8, 'quinto', 'Celina García' , 'Femenino'),
-    (9, 'primero', 'Luciano Once' , 'Masculino');
+    (6, 'segundo', 'Tomas Paz','Masculino'),
+    (7, 'tercero', 'Gustavo Guzman','Masculino'),
+    (8, 'cuarto', 'Celina García' , 'Femenino'),
+    (9, 'cuarto', 'Luciano Once' , 'Masculino'),
+    (10, 'quinto' , 'Juan perez' , 'Masculino' );
