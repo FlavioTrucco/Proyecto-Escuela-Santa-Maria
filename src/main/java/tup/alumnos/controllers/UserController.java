@@ -157,7 +157,8 @@ public class UserController {
           + "<td>" + user.getCurso() + "</td>"
           + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
-    } else {
+           /*TODO  agregamos mensaje de error con css https://codepen.io/palimadra/pen/OVvbaY*/
+    } else{
        resp ="""
         <div class='error'>el id que ingresó no existe, porfavor intente nuevamente</div>
       <style>
