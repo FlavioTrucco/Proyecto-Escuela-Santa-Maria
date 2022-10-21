@@ -160,7 +160,7 @@ public class UserController {
            /*TODO  agregamos mensaje de error con css https://codepen.io/palimadra/pen/OVvbaY*/
     } else {
        resp ="""
-        <div class='error'>el id que ingresó no existe, porfavor intente nuevamente</div>
+        <div class='error'>ERROR id incorrecto o inexistente, porfavor intente nuevamente</div>
       <style>
       .error{
           border: 1px solid;
@@ -260,6 +260,25 @@ public class UserController {
 
   @GetMapping("")
   public String hola() {
-    return "Bienvenido a la base de datos de la Escuela";
+   
+   
+    String resp = """
+      <h1 class='Bienvenidos'>Hola bienvenidos al registro de datos de la escuela "Santa María"</h1>
+    <style>
+
+  .Bienvenidos{
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding:12px;
+    padding-left: 8px;
+    font-style:italic;
+    width: 70%;
+    text-align:center;
   }
-}
+
+    </style>
+   
+    """;
+    return resp;
+      }
+  }
