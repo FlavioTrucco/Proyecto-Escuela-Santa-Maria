@@ -158,11 +158,24 @@ public class UserController {
           + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
     } else {
-      resp += "<tr>"
-          + "<td>" + "-" + "</td>"
-          + "<td>" + "-" + "</td>"
-          + "<td>" + "-" + "</td>"
-          + "</tr>";
+       resp ="""
+        <div class='error'>el id que ingresó no existe, porfavor intente nuevamente</div>
+      <style>
+      .error{
+          border: 1px solid;
+          margin: 10px 0px;
+          padding: 15px 10px 15px 50px;
+          background-repeat: no-repeat;
+          background-position: 10px center;
+        } 
+        .error{
+          color: #D8000C;
+          background-color: #FFBABA;
+          background-image: url('https://i.imgur.com/GnyDvKN.png');
+        }
+      </style>
+     
+      """;
 
     }
     return resp + "</table>";
@@ -205,7 +218,7 @@ public class UserController {
               width: 100%;
             }
             #users td, #users th {
-              border: 1px solid #ddd;
+              border: 3px solid #ddd;
               padding: 8px;
             }
             #users tr:nth-child(even){background-color: #f2f2f2;}
