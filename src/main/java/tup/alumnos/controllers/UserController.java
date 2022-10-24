@@ -160,7 +160,7 @@ public class UserController {
            /*TODO  agregamos mensaje de error con css https://codepen.io/palimadra/pen/OVvbaY*/
     } else {
        resp ="""
-        <div class='error'>ERROR id incorrecto o inexistente, porfavor intente nuevamente</div>
+        <div class='error'>Usted ingresó un id incorrecto o inexistente, por favor intente nuevamente</div>
       <style>
       .error{
           border: 1px solid;
@@ -170,9 +170,9 @@ public class UserController {
           background-position: 10px center;
         } 
         .error{
-          color: #D8000C;
-          background-color: #FFBABA;
-          background-image: url('https://i.imgur.com/GnyDvKN.png');
+          color: #9F6000;
+			background-color: #FEEFB3;
+			background-image: url('https://i.imgur.com/Z8q7ww7.png');
         }
       </style>
      
