@@ -8,8 +8,8 @@
  * el trabajo y pasarle los parámetros necesarios. 
  * Ese método llamado debería pertenecer a una clase del paquete services. 
  * Pero nosotros no tenemos ese paquete, porque este es un ejemplo muy simple.
- * Veremos que esta clase hace el trabajo, lo que no debería ser así.
- * Entonces, recordar que estamos dejando de lado un principio
+  * Veremos que esta clase 'UserController' hace todo el trabajo, lo que no debería ser así.
+ * Entonces, tenemos que recordar que estamos dejando de lado un principio
  * muy importante, para no complicar este ejemplo.
  */
 package tup.alumnos.controllers;
@@ -34,8 +34,8 @@ import tup.alumnos.repositories.UserRepository;
  * el nombre de una vista.
  */
 @RestController
-// La URL que vaya en la anotación habrá que agregarla detrás del puerto 8080
-// en todas las llamadas a esta aplicación.
+// La URL que va entre paréntesis en esta anotación habrá que agregarla detrás
+// del puerto 8080 en todas las llamadas a esta aplicación.
 // Por ejemplo @RequestMapping("/user") resultaría en lo siguiente:
 // localhost:8080/user.... y detrás de esto habría que agregar el
 // resto de la URL.
@@ -52,40 +52,47 @@ public class UserController {
    * - Implementa la interfaz Serializable.
    * Eso es todo. Es solo una convención.
    * 
-   * La anotación @Autowired significa que Spring va a inyectar en esta clase un
-   * bean
-   * llamado userRepository.
-   * No hay en este proyecto una clase UserRepository. Solo hay una
-   * interfaz UserRepository. Y esta interfaz lo único que hace es extender
-   * CrudRepository. No declara ni campos ni métodos. Nosotros no hacemos nada,
+    * La anotación '@Autowired' significa que Spring va a inyectar en esta clase un
+   * bean llamado 'userRepository' de tipo 'UserRepository'.
+   * No hay en este proyecto una clase 'UserRepository'. Solo hay una
+   * interfaz 'UserRepository'. Y esta interfaz lo único que hace es extender
+   * 'CrudRepository'. No declara ni campos ni métodos. Nosotros no hacemos nada,
    * todo lo hace Spring por nosotros.
    * Esta es la inyección de dependencia. Nosotros lo único que hacemos es
    * declarar la variable userRepository de tipo UserRepository, y ponerle
    * la anotación Autowired. Y listo. Ya tenemos en esta clase UserController
    * la variable userRepository correctamente configurada e inicializada, de
    * manera que la podemos usar sin más.
-   * Notar que tampoco hemos programado los métodos que estamos llamando. Esos
-   * métodos fueron generados automáticamente por la anotación Data de Lombok,
-   * que pusimos en la clase User.
+   *  * Notar que tampoco hemos programado los métodos que estamos llamando,
+   * y que están declarados en la interfaz 'CrudRepository'.
+   * Los nombres de los métodos que nosotros creamos en esta clase
+   * son arbitrarios. Pero los nombres de los métodos que invocamos
+   * sobre el objeto 'userRepository' tienen que ser los de la interfaz.
    */
   @Autowired
   private UserRepository userRepository;
 
   @PostMapping("/add") // Map ONLY POST Requests
-  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso, @RequestParam String sexo) {
     // @RequestParam means it is a parameter from the GET or POST request
+  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso, @RequestParam String sexo) {
 
-    User n = new User();
-    n.setNombre(Nombre);
-    n.setCurso(curso);
-    n.setSexo(sexo);
-    userRepository.save(n);
-    return "Saved";
+
+    User user = new User();
+    user.setNombre(Nombre);
+    user.setCurso(curso);
+    user.setSexo(sexo);
+    userRepository.save(user);
+    return "Se grabó el nuevo user";
   }
 
   @PostMapping("/delete/{id}") // Map ONLY POST Requests
   public String deleteUserById(@PathVariable Long id) {
-    // @RequestParam means it is a parameter from the GET or POST request
+     /**
+   * https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PathVariable.html
+   * 
+   * @PathVariable significa que el parámetro 'id' está ligado a una variable de
+   *               template del URI
+   */
 
     userRepository.deleteById(id);
     return "Deleted";
@@ -93,8 +100,8 @@ public class UserController {
 
   @GetMapping("/{id}")
   public String findUserById(@PathVariable Long id) {
-    // @PathVariable indica que el parámetro id, de tipo Long, es una
-    // variable que viene en la URI.
+ // @PathVariable indica que el parámetro 'id', de tipo Long, es una
+    // variable de template que viene en la URI.
     /**
      * https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-
      * Optional<T> findById(ID id)
@@ -102,7 +109,7 @@ public class UserController {
      * Dentro del estilo, el selector #users indica que el estilo
      * que estamos definiendo es para ser usado solamente en el
      * elemento del DOM que tiene id='users', o sea la tabla.
-     */
+     */ 
     String resp = """
           <style>
             #users {
@@ -140,8 +147,7 @@ public class UserController {
      * Si está, lo puedo extraer con el método get(). En este caso, el get()
      * me devuelve simplemente el objeto de tipo User, con sus campos
      * debidamente completados con los valores que JPA sacó de la tabla
-     * correspondiente
-     * de la base de datos.
+     * correspondiente de la base de datos.
      */
     if (userRepository.findById(id).isPresent()) {
       /**
