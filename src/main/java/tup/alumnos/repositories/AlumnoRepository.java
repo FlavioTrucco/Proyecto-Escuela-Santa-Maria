@@ -20,6 +20,7 @@ import tup.alumnos.models.Alumno;
  * variable declarada del tipo UserRepository. Solo la va a declarar, no vamos
  * a programar nada, o casi nada.
  */
+
 @Repository
 public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
 }

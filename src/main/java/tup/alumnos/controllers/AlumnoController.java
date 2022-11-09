@@ -163,7 +163,7 @@ public class AlumnoController {
           + "<td>" + user.getCurso() + "</td>"
           + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
-           /*TODO  agregamos mensaje de error con css https://codepen.io/palimadra/pen/OVvbaY*/
+           /*[x]  agregamos mensaje de error con css https://codepen.io/palimadra/pen/OVvbaY*/
     } else {
        resp ="""
         <div class='error'>Usted ingresó un id incorrecto o inexistente, por favor intente nuevamente</div>
@@ -191,31 +191,12 @@ public class AlumnoController {
 
   @GetMapping("/all")
   public String getAllUsers() {
-    // This returns a JSON or XML with the users
+    // retorna un json o un xml 
     Iterable<Alumno> iterable = alumnoRepository.findAll();
     /**
      * Lo que viene a continuación se llama text block, 
      * y es tipo String. El Manual de Java los describe en 
      * la sección 3.10.6 Text Blocks.
-     * 
-     * La variable resp es de tipo String, y le vamos a asignar un bloque de texto.
-     * Ese bloque de texto es todo que lo que está contenido entre los dos
-     * delimitadores: el de apertura y el de cierre.
-     * El delimitador de apertura es la triple comilla """ que está a la
-     * derecha del igual.
-     * El delimitador de cierre es la triple comilla """ que está al final.
-     * Todo es seguido por el punto y coma, porque es el final de una sentencia.
-     * 
-     * No es buen estilo incluir cadenas largas en un archivo de código fuente.
-     * Esto lo hago solo para no introducir una complicación que no agregaría
-     * nada a los conceptos que estoy discutiendo ahora.
-     * 
-     * Comenzamos por poner unos estilos CSS, para que la tabla quede más linda.
-     * 
-     * Cuando terminamos con los estilos, arrancamos con el HTML de la
-     * tabla misma. Lo primero que hacemos es generar una fila y en las
-     * celdas de esa fila poner los encabezados, que son los nombres de
-     * las columnas o campos de la tabla que está en la base de datos.
      */
     String resp = """
           <style>
