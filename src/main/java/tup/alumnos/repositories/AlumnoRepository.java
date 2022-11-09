@@ -3,7 +3,7 @@ package tup.alumnos.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import tup.alumnos.models.User;
+import tup.alumnos.models.Alumno;
 
 /**
  * Esta anotación le indica a Spring Boot que las clases
@@ -21,6 +21,6 @@ import tup.alumnos.models.User;
  * a programar nada, o casi nada.
  */
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
 }
 

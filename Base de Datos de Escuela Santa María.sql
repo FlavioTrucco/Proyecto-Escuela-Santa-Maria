@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 07-11-2022 a las 22:40:47
+-- Tiempo de generación: 09-11-2022 a las 00:00:40
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -27,23 +27,23 @@ USE `alumnos`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Estructura de tabla para la tabla `alumno`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `alumno`;
+CREATE TABLE IF NOT EXISTS `alumno` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `curso` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Sexo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `user`
+-- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `user` (`id`, `curso`, `Nombre`, `Sexo`) VALUES
+INSERT INTO `alumno` (`id`, `curso`, `nombre`, `Sexo`) VALUES
 (1, 'primero', 'Flavio Trucco', 'Masculino'),
 (2, 'primero', 'Vanessa Quiñones', 'Femenino'),
 (3, 'primero', 'Facundo Wehrli', 'Masculino'),

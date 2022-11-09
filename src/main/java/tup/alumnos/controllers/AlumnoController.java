@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import tup.alumnos.models.User;
-import tup.alumnos.repositories.UserRepository;
+import tup.alumnos.models.Alumno;
+import tup.alumnos.repositories.AlumnoRepository;
 
 /**
  * La anotación @RestController es la combinación de @Controller
@@ -41,7 +41,7 @@ import tup.alumnos.repositories.UserRepository;
 // resto de la URL.
 // En este caso, no necesitamos nada, y queda simplemente localhost:8080
 @RequestMapping("")
-public class UserController {
+public class AlumnoController {
   /**
    * Qué es un bean en Java
    * https://stackoverflow.com/a/3295517/2740402
@@ -70,19 +70,19 @@ public class UserController {
    * sobre el objeto 'userRepository' tienen que ser los de la interfaz.
    */
   @Autowired
-  private UserRepository userRepository;
+  private AlumnoRepository alumnoRepository;
 
   @PostMapping("/add") // Map ONLY POST Requests
     // @RequestParam means it is a parameter from the GET or POST request
-  public String addNewUser(@RequestParam String Nombre, @RequestParam String curso, @RequestParam String sexo) {
+  public String addNewUser(@RequestParam String nombre, @RequestParam String curso, @RequestParam String sexo) {
 
 
-    User user = new User();
-    user.setNombre(Nombre);
+    Alumno user = new Alumno();
+    user.setNombre(nombre);
     user.setCurso(curso);
     user.setSexo(sexo);
-    userRepository.save(user);
-    return "Se grabó el nuevo user";
+    alumnoRepository.save(user);
+    return "Se ha agregado el nuevo alumno a la base de datos";
   }
 
   @PostMapping("/delete/{id}") // Map ONLY POST Requests
@@ -94,8 +94,8 @@ public class UserController {
    *               template del URI
    */
 
-    userRepository.deleteById(id);
-    return "Deleted";
+    alumnoRepository.deleteById(id);
+    return "Se ha eliminado el alumno de la base de datos";
   }
 
   @GetMapping("/{id}")
@@ -134,7 +134,7 @@ public class UserController {
           <table id='users'>
             <tr>
               <th>Id</th>
-              <th>Nombre</th>
+              <th>nombre</th>
               <th>Curso</th>
               <th>Sexo</th>
             </tr>
@@ -149,14 +149,14 @@ public class UserController {
      * debidamente completados con los valores que JPA sacó de la tabla
      * correspondiente de la base de datos.
      */
-    if (userRepository.findById(id).isPresent()) {
+    if (alumnoRepository.findById(id).isPresent()) {
       /**
        * No necesito el operador new. Solo lo uso cuando quiero crear una
        * instancia que todavía no existe, por eso es 'nueva'. En este caso,
        * el objeto user ya existe, y me viene retornado por el método get().
        * No necesito crearlo, solo se lo asigno a la variable.
        */
-      User user = userRepository.findById(id).get();
+      Alumno user = alumnoRepository.findById(id).get();
       resp += "<tr>"
           + "<td>" + user.getId() + "</td>"
           + "<td>" + user.getNombre() + "</td>"
@@ -192,7 +192,7 @@ public class UserController {
   @GetMapping("/all")
   public String getAllUsers() {
     // This returns a JSON or XML with the users
-    Iterable<User> iterable = userRepository.findAll();
+    Iterable<Alumno> iterable = alumnoRepository.findAll();
     /**
      * Lo que viene a continuación se llama text block, 
      * y es tipo String. El Manual de Java los describe en 
@@ -241,7 +241,7 @@ public class UserController {
           <table id ='users'>
             <tr>
               <th>Id</th>
-              <th>Nombre</th>
+              <th>nombre</th>
               <th>curso</th>
               <th>sexo</th>
             </tr>
@@ -253,7 +253,7 @@ public class UserController {
          * porque el scope de las variables no lo permite.
          * Por eso uso el for mejorado, para recorrer el objeto iterable.
          */
-    for (User user : iterable) {
+    for (Alumno user : iterable) {
       resp += "<tr>"
           + "<td>" + user.getId() + "</td>"
           + "<td>" + user.getNombre() + "</td>"

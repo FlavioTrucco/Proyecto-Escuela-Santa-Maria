@@ -12,18 +12,18 @@ GRANT ALL PRIVILEGES ON `alumnos`.* TO ' springuser ' @' % ';
 
 USE `alumnos`;
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `alumno`;
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `alumno` (
     `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
     `curso` varchar(255) DEFAULT NULL,
-    `Nombre` varchar(255) DEFAULT NULL,
+    `nombre` varchar(255) DEFAULT NULL,
     `Sexo` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 INSERT INTO
-    `user` (`id`, `curso`, `Nombre`,`Sexo`)
+    `alumno` (`id`, `curso`, `nombre`,`Sexo`)
 VALUES
     (1, 'primero', 'Flavio Trucco', 'Masculino'),
     (2, 'primero', 'Vanessa Quiñones', 'Femenino'),
@@ -38,7 +38,7 @@ VALUES
 /*los siguientes alumnos deben subirlos al a base de datos de la siguiente manera:
  en SQL colocamos:
    INSERT INTO
-    `user` (`id`, `curso`, `Nombre`,`Sexo`)
+    `alumno` (`id`, `curso`, `nombre`,`Sexo`)
 
     y abajo de esto todos los nuevos nombres que agregué, osea de la línea 45 hasta la 74
 */
