@@ -10,7 +10,15 @@
 			"name": "Bienvenida",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
 			},
 			"response": []
 		},
@@ -18,7 +26,18 @@
 			"name": "Todos",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"all"
+					]
+				}
 			},
 			"response": []
 		},
@@ -26,7 +45,18 @@
 			"name": "Alumno 1",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -34,23 +64,77 @@
 			"name": "Alumno 2",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Agregar Alumno",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Juan Perez",
+							"type": "text"
+						},
+						{
+							"key": "curso",
+							"value": "segundo",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "masculino",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Borrar Alumno",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete/41",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete",
+						"41"
+					]
+				}
 			},
 			"response": []
 		}
