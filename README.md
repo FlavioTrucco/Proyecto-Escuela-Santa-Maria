@@ -1,1 +1,1 @@
-Este proyecto muestra una serie de alumnos con sus cursos de una escuela ficcional, el objetivo es adentrarse en SpringBoot y SQL
+Este proyecto permite la carga, y/o eliminación de alumnos (en la escuela "Santa María"), dentro una base de datos relacional que va a ser gestionada y administrada por MySQL.
