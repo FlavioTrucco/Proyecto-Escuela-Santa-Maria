@@ -135,8 +135,8 @@ public class AlumnoController {
             <tr>
               <th>Id</th>
               <th>nombre</th>
-              <th>Curso</th>
-              <th>Sexo</th>
+              <th>curso</th>
+              <th>sexo</th>
             </tr>
         """;
     /**
