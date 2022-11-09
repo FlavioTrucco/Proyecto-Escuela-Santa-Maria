@@ -82,7 +82,7 @@ public class AlumnoController {
     user.setCurso(curso);
     user.setSexo(sexo);
     alumnoRepository.save(user);
-    return "Se ha agregado el nuevo alumno a la base de datos";
+    return "Se ha agregado el nuevo alumno: \""+nombre+ "\"  a la base de datos";
   }
 
   @PostMapping("/delete/{id}") // Map ONLY POST Requests
