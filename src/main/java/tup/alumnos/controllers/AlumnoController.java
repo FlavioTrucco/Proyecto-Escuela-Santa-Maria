@@ -25,50 +25,12 @@ import org.springframework.web.bind.annotation.RestController;
 import tup.alumnos.models.Alumno;
 import tup.alumnos.repositories.AlumnoRepository;
 
-/**
- * La anotación @RestController es la combinación de @Controller
- * y @ResponseBody.
- * Está anotando la clase, o sea que todos los métodos la heredan y
- * no es necesario anotar cada uno de ellos. Todos tendrán la semántica
- * de @ResponseBody. Esto significa que la String retornada es la response, no
- * el nombre de una vista.
- */
+
 @RestController
-// La URL que va entre paréntesis en esta anotación habrá que agregarla detrás
-// del puerto 8080 en todas las llamadas a esta aplicación.
-// Por ejemplo @RequestMapping("/user") resultaría en lo siguiente:
-// localhost:8080/user.... y detrás de esto habría que agregar el
-// resto de la URL.
-// En este caso, no necesitamos nada, y queda simplemente localhost:8080
+
 @RequestMapping("")
 public class AlumnoController {
-  /**
-   * Qué es un bean en Java
-   * https://stackoverflow.com/a/3295517/2740402
-   * Un JavaBean es solo un estándar. Es una clase regular de Java, excepto que
-   * sigue ciertas convenciones:
-   * - Todas las propiedades son privadas (usan getters y setters).
-   * - Tiene un constructor público sin argumentos.
-   * - Implementa la interfaz Serializable.
-   * Eso es todo. Es solo una convención.
-   * 
-    * La anotación '@Autowired' significa que Spring va a inyectar en esta clase un
-   * bean llamado 'userRepository' de tipo 'UserRepository'.
-   * No hay en este proyecto una clase 'UserRepository'. Solo hay una
-   * interfaz 'UserRepository'. Y esta interfaz lo único que hace es extender
-   * 'CrudRepository'. No declara ni campos ni métodos. Nosotros no hacemos nada,
-   * todo lo hace Spring por nosotros.
-   * Esta es la inyección de dependencia. Nosotros lo único que hacemos es
-   * declarar la variable userRepository de tipo UserRepository, y ponerle
-   * la anotación Autowired. Y listo. Ya tenemos en esta clase UserController
-   * la variable userRepository correctamente configurada e inicializada, de
-   * manera que la podemos usar sin más.
-   *  * Notar que tampoco hemos programado los métodos que estamos llamando,
-   * y que están declarados en la interfaz 'CrudRepository'.
-   * Los nombres de los métodos que nosotros creamos en esta clase
-   * son arbitrarios. Pero los nombres de los métodos que invocamos
-   * sobre el objeto 'userRepository' tienen que ser los de la interfaz.
-   */
+
   @Autowired
   private AlumnoRepository alumnoRepository;
 
@@ -87,12 +49,7 @@ public class AlumnoController {
 
   @PostMapping("/delete/{id}") // Map ONLY POST Requests
   public String deleteUserById(@PathVariable Long id) {
-     /**
-   * https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/PathVariable.html
-   * 
-   * @PathVariable significa que el parámetro 'id' está ligado a una variable de
-   *               template del URI
-   */
+
 
     alumnoRepository.deleteById(id);
     return "Se ha eliminado el alumno de la base de datos";
@@ -100,16 +57,7 @@ public class AlumnoController {
 
   @GetMapping("/{id}")
   public String findUserById(@PathVariable Long id) {
- // @PathVariable indica que el parámetro 'id', de tipo Long, es una
-    // variable de template que viene en la URI.
-    /**
-     * https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-
-     * Optional<T> findById(ID id)
-     * 
-     * Dentro del estilo, el selector #users indica que el estilo
-     * que estamos definiendo es para ser usado solamente en el
-     * elemento del DOM que tiene id='users', o sea la tabla.
-     */ 
+
     String resp = """
           <style>
             #users {
@@ -139,23 +87,9 @@ public class AlumnoController {
               <th>sexo</th>
             </tr>
         """;
-    /**
-     * https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html
-     * El método findById() tiene un tipo de retorno Optional.
-     * Dicho brevemente, significa que el objeto retornado puede estar
-     * presente, o no estar presente. O está, o no está. Solo hay dos opciones.
-     * Si está, lo puedo extraer con el método get(). En este caso, el get()
-     * me devuelve simplemente el objeto de tipo User, con sus campos
-     * debidamente completados con los valores que JPA sacó de la tabla
-     * correspondiente de la base de datos.
-     */
+   
     if (alumnoRepository.findById(id).isPresent()) {
-      /**
-       * No necesito el operador new. Solo lo uso cuando quiero crear una
-       * instancia que todavía no existe, por eso es 'nueva'. En este caso,
-       * el objeto user ya existe, y me viene retornado por el método get().
-       * No necesito crearlo, solo se lo asigno a la variable.
-       */
+  
       Alumno user = alumnoRepository.findById(id).get();
       resp += "<tr>"
           + "<td>" + user.getId() + "</td>"
@@ -191,13 +125,11 @@ public class AlumnoController {
 
   @GetMapping("/all")
   public String getAllUsers() {
-    // retorna un json o un xml 
+    // retorna un json  
     Iterable<Alumno> iterable = alumnoRepository.findAll();
-    /**
-     * Lo que viene a continuación se llama text block, 
-     * y es tipo String. El Manual de Java los describe en 
-     * la sección 3.10.6 Text Blocks.
-     */
+    
+     // Lo que viene a continuación se llama text block, 
+    
     String resp = """
           <style>
             #users {"
@@ -247,10 +179,8 @@ public class AlumnoController {
 
   @GetMapping("")
   public String hola() {
-   
-   
     String resp = """
-      <h1 class='Bienvenidos'>Hola bienvenidos al registro de datos de la escuela "Santa María"</h1>
+      <h1 class='Bienvenidos'>Hola bienvenido al registro de datos de la escuela "Santa María"</h1>
     <style>
 
   .Bienvenidos{
