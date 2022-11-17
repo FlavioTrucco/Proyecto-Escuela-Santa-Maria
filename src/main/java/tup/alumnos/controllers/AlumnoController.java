@@ -1,17 +1,4 @@
-/**
- * Esta clase UserController pertenece al paquete controllers.
- * En principio, solo debería atender a los requests HTTP,
- * y según sea GET, POST, u otro método, analizar el contenido
- * del request, y decidir a qué método llamar. 
- * En principio, esta clase no debería hacer el trabajo. No.
- * Lo que debería hacer es llamar al método encargado de hacer
- * el trabajo y pasarle los parámetros necesarios. 
- * Ese método llamado debería pertenecer a una clase del paquete services. 
- * Pero nosotros no tenemos ese paquete, porque este es un ejemplo muy simple.
-  * Veremos que esta clase 'UserController' hace todo el trabajo, lo que no debería ser así.
- * Entonces, tenemos que recordar que estamos dejando de lado un principio
- * muy importante, para no complicar este ejemplo.
- */
+
 package tup.alumnos.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
