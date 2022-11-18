@@ -31,7 +31,7 @@ public class AlumnoController {
     user.setCurso(curso);
     user.setSexo(sexo);
     alumnoRepository.save(user);
-    //MODIFIED modificamos el return de el retorno del método.
+    //MODIFIED modificamos el return  del método.
     return "Se ha agregado el nuevo alumno: \""+nombre+ "\"  a la base de datos";
   }
 
@@ -85,7 +85,7 @@ public class AlumnoController {
           + "<td>" + user.getCurso() + "</td>"
           + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
-    /*NEW  agregamos mensaje de advertencia sacado de : https://codepen.io/palimadra/pen/OVvbaY*/
+    /*NEW  agregamos un else con un mensaje de advertencia sacado de : https://codepen.io/palimadra/pen/OVvbaY*/
     } else {
        resp ="""
         <div class='error'>Usted ingresó un id incorrecto o inexistente, por favor intente nuevamente</div>
@@ -165,7 +165,7 @@ public class AlumnoController {
     return resp + "</table>";
   }
   
-//NEW agregamos un mensaje de bienvenida 
+//NEW agregamos un simple mensaje de bienvenida con algunos estilos.
   @GetMapping("")
   public String hola() {
     String resp = """
