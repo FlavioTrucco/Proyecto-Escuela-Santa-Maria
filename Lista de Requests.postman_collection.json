@@ -3,7 +3,7 @@
 		"_postman_id": "5cf08cdb-a87b-4272-9bfe-017e30e8e469",
 		"name": "Lista de Requests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24092399"
+		"_exporter_id": "24059821"
 	},
 	"item": [
 		{
@@ -18,7 +18,8 @@
 						"localhost"
 					],
 					"port": "8080"
-				}
+				},
+				"description": "Simplemente muestra en el browser un mensaje de bienvenida con unos pocos estilos."
 			},
 			"response": []
 		},
@@ -37,7 +38,8 @@
 					"path": [
 						"all"
 					]
-				}
+				},
+				"description": "Muestra por browser una tabla con todos los alumnos que fueron cargados con sus respectivos datos."
 			},
 			"response": []
 		},
@@ -56,26 +58,28 @@
 					"path": [
 						"1"
 					]
-				}
+				},
+				"description": "Este es un ejemplo para mostrar por browser un solo alumno pedido por su identificador."
 			},
 			"response": []
 		},
 		{
-			"name": "Alumno 2",
+			"name": "advertencia : id de Alumno incorrecto  o inexistente",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/2",
+					"raw": "http://localhost:8080/18561651",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"2"
+						"18561651"
 					]
-				}
+				},
+				"description": "En este ejemplo se muestra una advertencia debido a que se ingresó un id incorrecto o inexistente.\n\nSe visualizará de la siguiente manera:\n\n<img src=\"https://content.pstmn.io/08a0b0c2-867e-46f5-b5fc-89f02450e2b0/aW1hZ2UucG5n\" alt=\"\" height=\"110\" width=\"334\">"
 			},
 			"response": []
 		},
@@ -89,23 +93,23 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "Juan Perez",
+							"value": "carla",
 							"type": "text"
 						},
 						{
 							"key": "curso",
-							"value": "segundo",
+							"value": "tercero",
 							"type": "text"
 						},
 						{
 							"key": "sexo",
-							"value": "masculino",
+							"value": "femenino",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/add",
+					"raw": "http://localhost:8080/add?=&=&=",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -113,8 +117,23 @@
 					"port": "8080",
 					"path": [
 						"add"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "",
+							"value": ""
+						}
 					]
-				}
+				},
+				"description": "Agrega un alumno, con los datos respectivos que se agreguen en la tabla que se encuentra en Body."
 			},
 			"response": []
 		},
@@ -124,7 +143,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/delete/41",
+					"raw": "http://localhost:8080/delete/40",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -132,9 +151,10 @@
 					"port": "8080",
 					"path": [
 						"delete",
-						"41"
+						"40"
 					]
-				}
+				},
+				"description": "Elimina un alumno ingresando en la url luego de el número de puerto esto es:\n\nStartFragment\n\nhttp://localhost:8080/delete/(aquí va el id del alumno que quiere ser eliminado).\n\nsi por ejemplo queremos eliminar el alumno que tiene el id 20 debemos ingresar:\n\nStartFragment\n\nhttp://localhost:8080/delete/20\n\nEndFragment  \n  \nEndFragme"
 			},
 			"response": []
 		}
