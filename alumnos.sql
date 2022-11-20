@@ -1,3 +1,4 @@
+/*MODIFIED base de datos de el profesor Gustavo modificada por completo. */
 DROP DATABASE IF EXISTS `alumnos`;
 
 CREATE DATABASE IF NOT EXISTS `alumnos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

@@ -21,8 +21,8 @@ public class AlumnoController {
   @Autowired
   private AlumnoRepository alumnoRepository;
 
-  @PostMapping("/add") // Map ONLY POST Requests
-    // @RequestParam means it is a parameter from the GET or POST request
+  @PostMapping("/add") 
+//@RequestParam significa que es un parámetro de los request GET o POST
   public String addNewUser(@RequestParam String nombre, @RequestParam String curso, @RequestParam String sexo) {
 
 
