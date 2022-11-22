@@ -1,3 +1,5 @@
+/*  TODO Esta Clase AlumnoController atiende los request HTTP ua sean GET, POST entre otros 
+y decide a que metodo llamar                                                   */ 
 
 package tup.alumnos.controllers;
 
@@ -21,22 +23,22 @@ public class AlumnoController {
   @Autowired
   private AlumnoRepository alumnoRepository;
 
-  @PostMapping("/add") 
-//@RequestParam significa que es un parámetro de los request GET o POST
+  @PostMapping("/add") // Map ONLY POST Requests
+    // @RequestParam means it is a parameter from the GET or POST request
   public String addNewUser(@RequestParam String nombre, @RequestParam String curso, @RequestParam String sexo) {
 
 
     Alumno user = new Alumno();
     user.setNombre(nombre);
-    user.setCurso(curso);
+    user.setCurso(curso);// 
     user.setSexo(sexo);
     alumnoRepository.save(user);
-    //MODIFIED modificamos el return  del método.
+    //MODIFIED modificamos el return de el retorno del método.
     return "Se ha agregado el nuevo alumno: \""+nombre+ "\"  a la base de datos";
   }
 
   @PostMapping("/delete/{id}") // Map ONLY POST Requests
-  public String deleteUserById(@PathVariable Long id) {
+  public String deleteUserById(@PathVariable Long id) { 
 
 
     alumnoRepository.deleteById(id);
@@ -44,7 +46,7 @@ public class AlumnoController {
   }
 
   @GetMapping("/{id}")
-  public String findUserById(@PathVariable Long id) {
+  public String findUserById(@PathVariable Long id) { 
         //MODIFIED  modificamos el color de la tabla 
     String resp = """
           <style>
@@ -53,7 +55,7 @@ public class AlumnoController {
               border-collapse: collapse;
               width: 100%;
             }
-            #users td, #users th {
+            #users td, #users th {   
               border: 1px solid #ddd;
               padding: 8px;
             }
@@ -85,7 +87,7 @@ public class AlumnoController {
           + "<td>" + user.getCurso() + "</td>"
           + "<td>" + user.getSexo() + "</td>"
           + "</tr>";
-    /*NEW  agregamos un else con un mensaje de advertencia sacado de : https://codepen.io/palimadra/pen/OVvbaY*/
+    /*NEW  agregamos mensaje de advertencia sacado de : https://codepen.io/palimadra/pen/OVvbaY*/
     } else {
        resp ="""
         <div class='error'>Usted ingresó un id incorrecto o inexistente, por favor intente nuevamente</div>
@@ -165,7 +167,7 @@ public class AlumnoController {
     return resp + "</table>";
   }
   
-//NEW agregamos un simple mensaje de bienvenida con algunos estilos.
+//NEW agregamos un mensaje de bienvenida 
   @GetMapping("")
   public String hola() {
     String resp = """
