@@ -40,7 +40,8 @@ public class AlumnoController {
 
 
     alumnoRepository.deleteById(id);
-    return "Se ha eliminado el alumno de la base de datos";
+    String alumnoEliminado ="se ha eliminado el alumno de ID : ("+id+")";
+    return alumnoEliminado;
   }
 
   @GetMapping("/{id}")
