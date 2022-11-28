@@ -1,7 +1,4 @@
 {
-    "todo-tree.general.tagGroups": {
-    
-    },
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -11,6 +8,7 @@
         "[ ]",
         "[x]",
         "NEW",
-        "MODIFIED"
+        "MODIFIED",
+        "EXPLAINING",
     ]
 }

@@ -1,4 +1,4 @@
-/*  TODO Esta Clase AlumnoController atiende los request HTTP ua sean GET, POST entre otros 
+/*  EXPLAINING Esta Clase AlumnoController atiende los request HTTP ua sean GET, POST entre otros 
 y decide a que metodo llamar                                                   */ 
 
 package tup.alumnos.controllers;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tup.alumnos.models.Alumno;
 import tup.alumnos.repositories.AlumnoRepository;
 
-
+//EXPLAINING anotación de Spring usada para marcar la clase como MVC controladora.
 @RestController
 
 @RequestMapping("")
@@ -23,8 +23,8 @@ public class AlumnoController {
   @Autowired
   private AlumnoRepository alumnoRepository;
 
-  @PostMapping("/add") // Map ONLY POST Requests
-    // @RequestParam means it is a parameter from the GET or POST request
+  @PostMapping("/add") 
+    // EXPLAINING @RequestParam significa que es un parametro de tipo GET o POST
   public String addNewUser(@RequestParam String nombre, @RequestParam String curso, @RequestParam String sexo) {
 
 
@@ -33,7 +33,7 @@ public class AlumnoController {
     user.setCurso(curso);// 
     user.setSexo(sexo);
     alumnoRepository.save(user);
-    //MODIFIED modificamos el return de el retorno del método.
+    //MODIFIED modificamos el return del método addNewUser.
     return "Se ha agregado el nuevo alumno: \""+nombre+ "\"  a la base de datos";
   }
 
@@ -116,10 +116,10 @@ public class AlumnoController {
 
   @GetMapping("/all")
   public String getAllUsers() {
-    // retorna un json  
+    // EXPLAINING retorna un json  
     Iterable<Alumno> iterable = alumnoRepository.findAll();
     
-     // Lo que viene a continuación se llama text block, 
+     // EXPLAINING Lo que viene a continuación se llama text block
     
     String resp = """
           <style>
